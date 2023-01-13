@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import '../index.css';
-import InsurancePlan from './InsurancePlan';
 
 function InsuranceList(){
     const [sortBy, setSortBy]= useState('price');
