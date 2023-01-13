@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Insurance-App/static/css/main.1452f44e.css",
+    "main.js": "/Insurance-App/static/js/main.f1ae1099.js",
+    "index.html": "/Insurance-App/index.html",
+    "main.1452f44e.css.map": "/Insurance-App/static/css/main.1452f44e.css.map",
+    "main.f1ae1099.js.map": "/Insurance-App/static/js/main.f1ae1099.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1452f44e.css",
+    "static/js/main.f1ae1099.js"
+  ]
+}
