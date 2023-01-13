@@ -4,11 +4,12 @@ import '../index.css';
 function InsuranceList(){
     const [sortBy, setSortBy]= useState('price');
     const [plans, setPlans]=useState([]);
-    const[allPlans,setAllPlans]=useState([]);
+    const [allPlans,setAllPlans]=useState([]);
     const [filterBy, setFilterBy]=useState('');
-    const [viewMode,setViewMode]=useState('list');
+    const [viewMode,setViewMode]=useState('grid');
     const [selectedPlans, setSelectedPlans]=useState([]);
     const [planComparison, setPlanComparison]= useState(false);
+    const [showInsuranceCompare, setShowInsuranceCompare]= useState(false);
 
     useEffect(()=>{
         const data=[
@@ -63,11 +64,7 @@ function InsuranceList(){
         setAllPlans(data);
     },[])
 
-    //useEffect(()=>{
-       // handleChange("price")
-
-    //},[plans])
-
+    // Fun to handle compare checkboxes
     const handleSelect = (e, plan)=>{
     setPlanComparison(false) 
      if(selectedPlans.find(p => p.id == plan.id)){
@@ -79,7 +76,7 @@ function InsuranceList(){
        console.log(selectedPlans)
     }       
     
-
+// renderering plans
     const renderedPlans= plans.map((plan)=>{
         return (
 
@@ -94,7 +91,8 @@ function InsuranceList(){
             </div>)
     })
     
-       const handleChange =(sortType) =>{
+    // fun for handling sort
+    const handleChange =(sortType) =>{
         setSortBy(sortType);
         console.log(sortType)
             switch(sortType){
@@ -108,8 +106,8 @@ function InsuranceList(){
                 break;
         }   }
     
-       
-        const handleFilter = (filterType) => {
+    // handle for filter
+    const handleFilter = (filterType) => {
             setFilterBy(filterType);
             console.log(filterType)
             let filteredPlans = [...allPlans];
@@ -130,17 +128,19 @@ function InsuranceList(){
             }
             setPlans(filteredPlans);
           }
-       
-          const handleView=(viewType)=>{
-            setViewMode(viewType);
-        }
     
-        const comparePlans = ()=>{
+          // fun for handle view of plans
+    const handleView=(viewType)=>{
+            setViewMode(viewType);
+      }
+    
+    // fun for comparing plans
+    const comparePlans = ()=>{
             if(selectedPlans.length<2 || selectedPlans.length>4){
                 return;
             }
            setPlanComparison(true);
-        }
+    }
        
         return (
             <div className='parent-container'>
